@@ -1,1 +1,1 @@
-THIS IS A PRACTICE PROJECT
+A basic crud application with the authentication feature
