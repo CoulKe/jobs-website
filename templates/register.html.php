@@ -21,10 +21,3 @@
     <br>
     <input type="submit" name="register" value="Register"> <br>
 </form>
-
-<style>
-    .error {
-        background-color: red;
-        color: white;
-    }
-</style>
