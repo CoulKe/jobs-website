@@ -33,6 +33,6 @@ class Database_Table
             $query .= 'WHERE `' . $key . '` = \'' . $value . '\'';
         }
         $result = $this->query($query);
-        return $result->fetch();
+        return $result->fetchAll();
     }
 }

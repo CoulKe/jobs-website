@@ -6,9 +6,8 @@ try {
 
     $users_table = new Database_Table($pdo, 'users');
     $nameErr = $usernameErr = $emailErr = $passwordErr = $confirmErr = '';
-    $all_email = $users_table->find_by_value('email');
-    $all_username = $users_table->find_by_value('username');
-    
+
+    $errors = [];
 
     if (isset($_POST['register'])) {
         $first_name = $_POST['first_name'];
@@ -19,74 +18,72 @@ try {
 
         if (empty($first_name)) {
             $nameErr = 'First name not filled';
-            $valid = false;
-            // die();
+            array_push($errors, $nameErr);
         } else {
             $first_name = htmlspecialchars($first_name);
         }
 
         if (empty($email)) {
             $emailErr = 'Email not filled';
-            $valid = false;
-            // die();
+            array_push($errors, $emailErr);
         } else {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $emailErr = 'Invalid email';
-                $valid = false;
-                // die();
+                array_push($errors, $emailErr);
+            } else {
+                $used_email = $users_table->find_by_value('email', $email);
+
+                if (count($used_email) > 0) {
+                    $emailErr = 'Email already used';
+                    array_push($errors, $emailErr);
+                } else {
+                    $email = htmlspecialchars($email);
+                }
             }
-            $email = htmlspecialchars($email);
         }
         if (empty($username)) {
             $usernameErr = 'Username not filled';
-            $valid = false;
-            // die();
+            array_push($errors, $usernameErr);
         } else {
-            $username = htmlspecialchars($username);
+            $used_username = $users_table->find_by_value('username', $username);
+            if (count($used_username) > 0) {
+                $usernameErr = 'Username already taken';
+                array_push($errors, $usernameErr);
+            } else {
+                $username = htmlspecialchars($username);
+            }
         }
 
         if (empty($password)) {
             $passwordErr = 'Password not filled';
-            $valid = false;
-            // die();
+            array_push($errors, $passwordErr);
         } else {
-            $password = htmlspecialchars($password);
+            if (!empty($password) !== !empty($password_confirm)) {
+                $passwordErr = 'Passwords did not match';
+                array_push($errors, $passwordErr);
+            } else {
+                $password = htmlspecialchars($password);
+            }
         }
         if (empty($password_confirm)) {
             $confirmErr = 'Confirm password';
-            $valid = false;
-            // die();
+            array_push($errors, $confirmErr);
         } else {
             $password_confirm = htmlspecialchars($password_confirm);
         }
 
-        if ($password !== $password_confirm) {
-            $passwordErr = 'Passwords did not match';
-            $valid = false;
-            // die();
-        }
 
-
-        if ($valid) {
+        print_r($errors);
+        echo count($errors);
+        if (!count($errors) >= 1) {
             $users_table->insert([
                 'first_name' => $first_name,
                 'email' => $email,
                 'username' => $username,
                 'password' => password_hash($password, PASSWORD_DEFAULT)
             ]);
-            if (in_array($email, $all_email)) {
-                $emailErr = 'Email already used';
-                unset($email);
-                $valid = false;
-                // die();
-            }
-            if (in_array($username, $all_username)) {
-                $usernameErr = 'Username already taken';
-                unset($username);
-                $valid = false;
-                // die();
-            }
-            header('Location:login.php');
+            // header('Location:login.php');
+            echo 'success';
         }
     }
 } catch (PDOException $e) {
