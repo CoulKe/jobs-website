@@ -17,7 +17,7 @@ try {
             $error = 'Fill all fields to login';
         }
          else {
-            $query = "SELECT `username`, `password` FROM `users` WHERE `username`='" . $username . "'";
+            $query = "SELECT `username`, `password`, `email` FROM `users` WHERE `username`='" . $username . "'";
             $result = $pdo->query($query);
 
             if (!$result) {
