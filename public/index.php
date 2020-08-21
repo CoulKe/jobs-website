@@ -1,5 +1,11 @@
 <?php
 session_start();
-echo 'Welcome home';
-echo $_SESSION['email'];
-echo $_SESSION['password'];
+try {
+
+    ob_start();
+    include __DIR__ . '../../templates/home.html.php';
+    $output = ob_get_clean();
+} catch (PDOException $e) {
+    echo 'ERROR: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine();
+}
+include __DIR__ . '../../templates/layout.html.php';

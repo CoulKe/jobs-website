@@ -1,7 +1,7 @@
 <form action="" method="POST">
-<span class="error"> <?php echo $error ?? ''; ?></span> <br>
+<span class="error"> <?php echo $error; ?></span> <br>
     <label for="username">Username: </label> <br>
-    <input type="text" name="username" value =<?= $_POST['username'] ?? ''?>>
+    <input type="text" name="username" value =<?= $_POST['u'] ?>>
 
     <br>
     <label for="password">Password: </label> <br>
