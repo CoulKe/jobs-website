@@ -29,8 +29,8 @@ try {
 
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['password'] = $row['password'];
-                    echo 'Password matched';
-                    // header('Location:index.php');
+                    echo 'Loading...';
+                    header('Location:index.php');
                 } else {
                     echo 'Wrong Username or Password';
                 }
