@@ -73,17 +73,15 @@ try {
         }
 
 
-        print_r($errors);
-        echo count($errors);
         if (!count($errors) >= 1) {
             $users_table->insert([
                 'first_name' => $first_name,
-                'email' => $email,
+                'email' => strtolower($email),
                 'username' => $username,
                 'password' => password_hash($password, PASSWORD_DEFAULT)
             ]);
-            // header('Location:login.php');
-            echo 'success';
+            header('Location:login.php');
+            echo 'successfully registered';
         }
     }
 } catch (PDOException $e) {
