@@ -5,6 +5,7 @@ try {
 
 
     $users_table = new Database_Table($pdo, 'users');
+    $title = 'Register';
     $nameErr = $usernameErr = $emailErr = $passwordErr = $confirmErr = '';
 
     $errors = [];
@@ -84,7 +85,10 @@ try {
             echo 'successfully registered';
         }
     }
+    ob_start();
+    include __DIR__ . '../../templates/register.html.php';
+    $output = ob_get_clean();
 } catch (PDOException $e) {
     echo 'ERROR: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on ' . $e->getLine();
 }
-include __DIR__ . '../../templates/register.html.php';
+include __DIR__ . '../../templates/authentication.html.php';

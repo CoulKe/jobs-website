@@ -1,4 +1,5 @@
 <form action="" method="POST" id="register_form">
+<h1>Register Form</h1>
     <label for="First name">First name: </label> <br>
     <input type="text" name="first_name" id="fName" value=<?= $_POST['first_name'] ?? '' ?>>
     <span class="error" id="fNameError"> <?php echo $nameErr; ?></span>
