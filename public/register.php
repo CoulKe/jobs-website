@@ -6,7 +6,7 @@ try {
 
     $users_table = new Database_Table($pdo, 'users');
     $title = 'Register';
-    $nameErr = $usernameErr = $emailErr = $passwordErr = $confirmErr = '';
+    $nameErr = $usernameErr = $emailErr = $genderErr = $passwordErr = $confirmErr = '';
 
     $errors = [];
 

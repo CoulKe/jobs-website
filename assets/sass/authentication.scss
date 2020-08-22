@@ -30,12 +30,22 @@ form{
     margin-bottom: 16px;
     width: 100%;
   }
+  input[type="radio"]{
+      margin-bottom: none;
+      width: fit-content;
+      border: 2px solid red;
+  }
+  
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="password"]:focus{
       outline: 2px solid rgb(143, 143, 235);
       padding: 2px;
       border: none;
+  }
+  .gender_options{
+      display: flex;
+      justify-content: space-between;
   }
 
   input[type="submit"]{
