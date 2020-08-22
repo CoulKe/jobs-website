@@ -8,6 +8,7 @@ let passwordConfirm = document.querySelector("#passwordConfirm");
 let gender = document.getElementsByName("gender");
 let register = document.querySelector("#register");
 
+
 // Functions
 function invalidAlert(errorFieldSelector, errorText) {
   let selector = document.querySelector(errorFieldSelector);
@@ -29,15 +30,16 @@ function radiosValidate(selector) {
 }
 
 
-form.addEventListener("submit", function (event) {
-  let radios = radiosValidate("gender");
+ form.addEventListener("submit", function (event) {
+  let radiosBool = radiosValidate("gender");
+  
   if (
     firstName.value == "" &&
     email.value == "" &&
     username.value == "" &&
     password.value == "" &&
     passwordConfirm.value == "" &&
-    radios == false
+    radiosBool === false
   ) {
     alert("Fill all fields");
     firstName.focus();
@@ -74,8 +76,8 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
     return;
   }
-  if (radios == false) {
-    invalidAlert("genderError", "Select gender");
+  if (radiosBool === false) {
+    invalidAlert("#genderError", "Select gender");
     event.preventDefault();
     return;
   }
