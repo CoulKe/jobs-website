@@ -1,39 +1,34 @@
 <?php
-session_start();
 try {
     include __DIR__ . '../../includes/Config.php';
-
-    $usersTable = new PDO('mysql: host=localhost; dbname=mentor_project; charset=utf8mb4;', 'root', '');
+    include __DIR__ . '../../Classes/Database_Functions.php';
+    $error = '';
     $title = 'Login';
-
-    $usernameErr = $passwordErr =  '';
+    $users_table = new Database_Table($pdo, 'users');
 
     if (isset($_POST['login'])) {
-        $username = htmlspecialchars($_POST['username'], ENT_COMPAT);
-        $password = htmlspecialchars($_POST['password']);
-
-        if (empty($username)) {
+        if (empty($_POST['username'])) {
             $error = 'Fill all fields to login';
-        } else if (empty($password)) {
+        } else if (empty($_POST['password'])) {
             $error = 'Fill all fields to login';
-        }
-         else {
-            $query = "SELECT `username`, `password`, `email` FROM `users` WHERE `username`='" . $username . "'";
-            $result = $pdo->query($query);
-
-            if (!$result) {
-                echo '<script>alert(Something went wrong.. Try again) </script>';
-            }
-            while ($row = $result->fetch()) {
-
-                if (password_verify($password, $row['password'])) {
-
-                    $_SESSION['email'] = $row['email'];
-                    $_SESSION['password'] = $row['password'];
-                    echo 'Loading...';
-                    header('Location:index.php');
-                } else {
-                    echo 'Wrong Username or Password';
+        } else {
+            $all_username = $users_table->find_by_value('username', $_POST['username']);
+            if (count($all_username) < 1) {
+                $error = 'Username not found';
+            } else {
+                $username = $all_username[0]['username'];
+                $query = "SELECT `password`, `email` FROM `users` WHERE `username`='" . $username . "'";
+                $result = $pdo->query($query);
+                while ($row = $result->fetch()) {
+                    if (password_verify($_POST['password'], $row['password'])) {
+                        session_start();
+                        session_regenerate_id();
+                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['password'] = $row['password'];
+                        header('Location:index.php');
+                    } else {
+                        $error = 'Wrong password';
+                    }
                 }
             }
         }
@@ -41,8 +36,7 @@ try {
     ob_start();
     include __DIR__ . '../../templates/login.html.php';
     $output = ob_get_clean();
-
 } catch (PDOException $e) {
-    echo 'ERROR: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine();
+    echo 'ERROR: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on ' . $e->getLine();
 }
-include __DIR__.'../../templates/authentication.html.php';
+include __DIR__ . '../../templates/authentication.html.php';

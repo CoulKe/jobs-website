@@ -6,14 +6,16 @@ try {
 
     $users_table = new Database_Table($pdo, 'users');
     $title = 'Register';
-    $nameErr = $usernameErr = $emailErr = $genderErr = $passwordErr = $confirmErr = '';
+    $nameErr = $usernameErr = $emailErr = $genderErr = $passwordErr = $confirmErr = $genderErr = '';
 
     $errors = [];
 
     if (isset($_POST['register'])) {
+        echo $_POST['gender'];
         $first_name = $_POST['first_name'];
         $username = $_POST['username'];
         $email = $_POST['email'];
+        $gender = $_POST['gender'];
         $password = $_POST['password'];
         $password_confirm = $_POST['password_confirm'];
 
@@ -66,6 +68,10 @@ try {
                 $password = htmlspecialchars($password);
             }
         }
+        if ($gender !== 'male' || $gender !== 'female' || $gender !== 'other') {
+            $genderErr = 'Pick your gender';
+            array_push($errors, $genderErr);
+        }
         if (empty($password_confirm)) {
             $confirmErr = 'Confirm password';
             array_push($errors, $confirmErr);
@@ -74,11 +80,12 @@ try {
         }
 
 
-        if (!count($errors) >= 1) {
+        if (!count($errors) > 0) {
             $users_table->insert([
                 'first_name' => $first_name,
                 'email' => strtolower($email),
                 'username' => $username,
+                'gender' => $gender,
                 'password' => password_hash($password, PASSWORD_DEFAULT)
             ]);
             header('Location:login.php');

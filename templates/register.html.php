@@ -14,9 +14,9 @@
     <br>
     <label for="gender">Gender:</label> <br>
     <div class="gender_options">
-        <label for="male">Male:</label><input type="radio" required="required" name="gender" id="gender" value="male"> <br>
-        <label for="female">Female:</label><input type="radio" required="required" name="gender" id="gender" value="female"> <br>
-        <label for="other">Other:</label><input type="radio" required="required" name="gender" id="gender" value="other"> <br>
+        <label for="male">Male:</label><input type="radio" required="required" name="gender" value="male"> <br>
+        <label for="female">Female:</label><input type="radio" required="required" name="gender" value="female"> <br>
+        <label for="other">Other:</label><input type="radio" required="required" name="gender" value="other"> <br>
     </div>
     <span class="error" id="genderError"> <?php echo $genderErr; ?></span>
     <br>
