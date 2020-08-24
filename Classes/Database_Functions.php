@@ -26,7 +26,7 @@ class Database_Table
         $query = rtrim($stmt, ',');
         $this->query($query, $fields);
     }
-    function find_by_value($key = null, $value = null)
+    function find_column($key = null, $value = null)
     {
         $query = 'SELECT `' . $key . '` FROM `' . $this->table . '` ';
         if ($key != null && $value != null) {
@@ -34,5 +34,15 @@ class Database_Table
         }
         $result = $this->query($query);
         return $result->fetchAll();
+    }
+    /**
+     * Fetches a single user record into an array
+     * from the database 
+     */
+    function find_single_record($key, $value)
+    {
+        $query = "SELECT * FROM `users` WHERE `$key` = '$value'";
+        $result = $this->query($query);
+        return $result->fetch();
     }
 }

@@ -12,7 +12,7 @@ try {
         } else if (empty($_POST['password'])) {
             $error = 'Fill all fields to login';
         } else {
-            $all_username = $users_table->find_by_value('username', $_POST['username']);
+            $all_username = $users_table->find_column('username', $_POST['username']);
             if (count($all_username) < 1) {
                 $error = 'Username not found';
             } else {

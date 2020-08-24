@@ -2,6 +2,32 @@
   background-color: rgb(216, 122, 122);
   color: white;
 }
-*{
-    background-color: blue;
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  color: #fff;
+  p{
+    font-size: larger;
+    font-weight: 700;
+  }
+  ul{
+    list-style-type: none;
+    display: flex;
+    li{
+      padding: 1rem;
+      a{
+        text-decoration: none;
+        padding: 1rem;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Profile page
+.profile_banner{
+  
 }

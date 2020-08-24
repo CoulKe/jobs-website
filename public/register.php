@@ -6,18 +6,21 @@ try {
 
     $users_table = new Database_Table($pdo, 'users');
     $title = 'Register';
-    $nameErr = $usernameErr = $emailErr = $genderErr = $passwordErr = $confirmErr = $genderErr = '';
+    $nameErr = $usernameErr = $emailErr = $genderErr = $picErr = $passwordErr = $confirmErr = $genderErr = '';
+    $genders = ['male', 'female', 'other'];
+    $allowed_extensions = ['jpg', 'jpeg', 'png'];
 
     $errors = [];
 
     if (isset($_POST['register'])) {
-        echo $_POST['gender'];
         $first_name = $_POST['first_name'];
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $gender = $_POST['gender'];
+        $gender = strtolower($_POST['gender']);
+        $profile_pic = $_FILES['profile_pic'];
         $password = $_POST['password'];
         $password_confirm = $_POST['password_confirm'];
+        
 
         if (empty($first_name)) {
             $nameErr = 'First name not filled';
@@ -34,7 +37,7 @@ try {
                 $emailErr = 'Invalid email';
                 array_push($errors, $emailErr);
             } else {
-                $used_email = $users_table->find_by_value('email', $email);
+                $used_email = $users_table->find_column('email', $email);
 
                 if (count($used_email) > 0) {
                     $emailErr = 'Email already used';
@@ -48,7 +51,7 @@ try {
             $usernameErr = 'Username not filled';
             array_push($errors, $usernameErr);
         } else {
-            $used_username = $users_table->find_by_value('username', $username);
+            $used_username = $users_table->find_column('username', $username);
             if (count($used_username) > 0) {
                 $usernameErr = 'Username already taken';
                 array_push($errors, $usernameErr);
@@ -57,6 +60,65 @@ try {
             }
         }
 
+        // File upload
+        /**
+         * Check if file was uploaded
+         * then validate
+         */
+        if (!empty($profile_pic['tmp_name'])) {
+            $file_extension = explode('.',$profile_pic['name'])[1];
+            if ($profile_pic['error'] > 0) {
+                array_push($errors, $picErr);
+                echo 'Problem: ';
+                switch ($profile_pic['error']) {
+                    case 1:
+                        echo 'File exceeded upload_max_filesize.';
+                        break;
+                    case 2:
+                        echo 'File exceeded max_file_size.';
+                        break;
+                    case 3:
+                        echo 'File only partially uploaded.';
+                        break;
+
+                    // case 4:
+                        //Pass, it's not a must to upload file
+                    //     'No file uploaded.';
+                    case 6:
+                        echo 'Cannot upload file: No temp directory specified.';
+                        break;
+                    case 7:
+                        echo 'Upload failed: Cannot write to disk.';
+                        break;
+                    case 8:
+                        echo 'A PHP extension blocked the file upload.';
+                        break;
+                }
+                exit;
+            }
+            // Does the file have the right MIME type?  
+            if (!in_array($file_extension, $allowed_extensions)) {
+                array_push($errors, $picErr);
+                echo 'Problem: file format is not allowed.';
+                exit;
+            }
+            // put the file where we'd like it  
+            $uploaded_file = '../assets/user_images/' . $profile_pic['name'];
+            if (is_uploaded_file($profile_pic['tmp_name'])) {
+                if (!move_uploaded_file($profile_pic['tmp_name'], $uploaded_file)) {
+                    echo 'Problem: Could not move file to destination directory.';
+                    exit;
+                }
+            } else {
+                echo 'Problem: Possible file upload attack. Filename: ';
+                echo $profile_pic['name'][$uploaded_file];
+                exit;
+            }
+            echo 'File uploaded successfully.';
+            // show what was uploaded  
+            echo '<img src="' . $uploaded_file . '"/>';
+        }
+        //End file upload
         if (empty($password)) {
             $passwordErr = 'Password not filled';
             array_push($errors, $passwordErr);
@@ -68,7 +130,7 @@ try {
                 $password = htmlspecialchars($password);
             }
         }
-        if ($gender !== 'male' || $gender !== 'female' || $gender !== 'other') {
+        if (!in_array($gender, $genders)) {
             $genderErr = 'Pick your gender';
             array_push($errors, $genderErr);
         }
@@ -86,10 +148,10 @@ try {
                 'email' => strtolower($email),
                 'username' => $username,
                 'gender' => $gender,
+                'profile_url' => $uploaded_file,
                 'password' => password_hash($password, PASSWORD_DEFAULT)
             ]);
             header('Location:login.php');
-            echo 'successfully registered';
         }
     }
     ob_start();

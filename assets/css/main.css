@@ -3,8 +3,28 @@
   color: white;
 }
 
-* {
-  background-color: blue;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  color: #fff;
+}
+nav p {
+  font-size: larger;
+  font-weight: 700;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+nav ul li {
+  padding: 1rem;
+}
+nav ul li a {
+  text-decoration: none;
+  padding: 1rem;
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */
