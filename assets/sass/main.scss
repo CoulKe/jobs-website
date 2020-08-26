@@ -9,6 +9,7 @@ nav{
   align-items: center;
   background-color: #111;
   color: #fff;
+  padding-left: 1rem;
   p{
     font-size: larger;
     font-weight: 700;
@@ -28,6 +29,9 @@ nav{
 }
 
 // Profile page
-.profile_banner{
-  
+.profile_pic{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }

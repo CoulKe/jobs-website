@@ -8,13 +8,11 @@ try {
 
     if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
        $user = $users_table->find_single_record('email','thatcoul@gmail.com');
-       $username = $user['username'];
+    extract($user);
        if ($user['email'] === $_SESSION['email'] && $user['password'] === $_SESSION['password']) {
            $logged_in = TRUE;
        }
-       else {
-           header('Location:index.php');
-       }
+       
     }
 
     ob_start();

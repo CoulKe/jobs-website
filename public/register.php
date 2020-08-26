@@ -6,7 +6,7 @@ try {
 
     $users_table = new Database_Table($pdo, 'users');
     $title = 'Register';
-    $nameErr = $usernameErr = $emailErr = $genderErr = $picErr = $passwordErr = $confirmErr = $genderErr = '';
+    $nameErr = $usernameErr = $emailErr = $picErr = $passwordErr = $confirmErr = $genderErr = '';
     $genders = ['male', 'female', 'other'];
     $allowed_extensions = ['jpg', 'jpeg', 'png'];
 
@@ -103,9 +103,9 @@ try {
                 exit;
             }
             // put the file where we'd like it  
-            $uploaded_file = '../assets/user_images/' . $profile_pic['name'];
+            $uploaded_file = '/assets/user_images/' . $profile_pic['name'];
             if (is_uploaded_file($profile_pic['tmp_name'])) {
-                if (!move_uploaded_file($profile_pic['tmp_name'], $uploaded_file)) {
+                if (!move_uploaded_file($profile_pic['tmp_name'], '..'.$uploaded_file)) {
                     echo 'Problem: Could not move file to destination directory.';
                     exit;
                 }
@@ -115,8 +115,6 @@ try {
                 exit;
             }
             echo 'File uploaded successfully.';
-            // show what was uploaded  
-            echo '<img src="' . $uploaded_file . '"/>';
         }
         //End file upload
         if (empty($password)) {
