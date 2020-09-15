@@ -14,7 +14,6 @@ class Database_Table
         $query->execute($parameters);
         return $query;
     }
-
     public function insert($fields)
     {
 
@@ -26,9 +25,9 @@ class Database_Table
         $query = rtrim($stmt, ',');
         $this->query($query, $fields);
     }
-    function find_column($key = null, $value = null)
+    public function findAll($key = null, $value = null)
     {
-        $query = 'SELECT `' . $key . '` FROM `' . $this->table . '` ';
+        $query = 'SELECT * FROM `' . $this->table . '` ';
         if ($key != null && $value != null) {
             $query .= 'WHERE `' . $key . '` = \'' . $value . '\'';
         }
@@ -39,10 +38,34 @@ class Database_Table
      * Fetches a single user record into an array
      * from the database 
      */
-    function find_single_record($key, $value)
+    public function find_single_record($key, $value)
     {
-        $query = "SELECT * FROM `users` WHERE `$key` = '$value'";
+        $query = "SELECT * FROM `".$this->table."` WHERE `$key` = '$value'";
         $result = $this->query($query);
         return $result->fetch();
+    }
+    /**
+     * Fetches result from the database using SQL Limit.
+     * If column and value are not specified it fetches
+     * all data.
+     */
+    public function limit_query(int $start, int $end, string $column=null, string $value = null){
+        $query = 'SELECT * FROM `'.$this->table.'`';
+        if ($column !== null && $value !==null) {
+            $query.=' WHERE `'.$column.'` = "'.$value.'" LIMIT ' . $start. ',' . $end;
+        }
+        $result = $this->query($query);
+        return $result;
+    }
+    public function update($fields = [])
+    {
+        $query = "UPDATE `$this->table` SET ";
+        foreach ($fields as $key => $value) {
+            $query.="`$key` = :$key,";
+        }
+        
+        $query = rtrim($query, ',');
+        $query.=" WHERE id = :id";
+        $result = $this->query($query, $fields);
     }
 }

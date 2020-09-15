@@ -12,7 +12,7 @@ try {
         } else if (empty($_POST['password'])) {
             $error = 'Fill all fields to login';
         } else {
-            $all_username = $users_table->find_column('username', $_POST['username']);
+            $all_username = $users_table->findAll('username', $_POST['username']);
             if (count($all_username) < 1) {
                 $error = 'Username not found';
             } else {
@@ -21,6 +21,8 @@ try {
                 $result = $pdo->query($query);
                 while ($row = $result->fetch()) {
                     if (password_verify($_POST['password'], $row['password'])) {
+                        session_destroy();
+                        unset($_SESSION);
                         session_start();
                         session_regenerate_id();
                         $_SESSION['email'] = $row['email'];

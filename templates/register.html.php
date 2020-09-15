@@ -12,10 +12,6 @@
     <input type="text" name="username" id="username" required="required" autocomplete="off" value=<?= $_POST['username'] ?? '' ?>>
     <span class="error" id="usernameError"> <?php echo $usernameErr; ?></span>
     <br>
-    <label for="username">Profile picture:</label> <br>
-    <input type="file" name="profile_pic" id="profile_pic" value=<?= $_POST['the_file'] ?? '' ?>>
-    <span class="error" id="picError"> <?php echo $picErr; ?></span>
-    <br>
     <label for="gender">Gender:</label> <br>
     <div class="gender_options">
         <label for="male">Male:</label><input type="radio" required="required" name="gender" value="male"> <br>
@@ -24,6 +20,11 @@
     </div>
     <span class="error" id="genderError"> <?php echo $genderErr; ?></span>
     <br>
+    <label for="Position">Position: </label> <br>
+    <div class="position_options">
+        <label for="Employer">Employer:</label><input type="radio" required="required" name="position" value="employer">
+        <label for="Candidate">Candidate:</label><input type="radio" required="required" name="position" value="candidate"> <br>
+    </div>
     <label for="password">Password: </label> <br>
     <input type="password" id="password" required="required" name="password" autocomplete="off">
     <span class="error" id="passwordError"> <?php echo $passwordErr; ?></span>

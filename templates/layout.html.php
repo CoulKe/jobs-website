@@ -10,20 +10,75 @@
 </head>
 
 <body>
-    <div class="container">
-        <nav>
-            <p>Job search</p>
+    <nav class="position-sticky">
+        <div class="container nav">
+            <p id="site-title">Job search</p>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="">Messages</a></li>
-                <li><a href="profile.php">Profile</a></li>
+                <li><a class="link" href="index.php">Home</a></li>
+                <li><a class="link" href="jobs.php">Jobs</a></li>
+                <li><a class="link" href="employers.php">Employers</a></li>
+                <li><a class="link" href="candidates.php">Candidates</a></li>
             </ul>
-        </nav>
-    </div>
+            <?php
+            if (isset($_SESSION['password'])) {
+                echo '<div id="join">Account
+                <div class="dropdown-content">
+                    <a href="profile.php">Profile</a>
+                    <a href="logout.php">Logout</a>
+                </div>
+            </div>';
+            } else {
+                echo '<div id="join">Join
+                <div class="dropdown-content">
+                    <a href="login.php">Login</a>
+                    <a href="register.php">Register</a>
+                </div>
+            </div>';
+            }
+            ?>
+        </div>
+    </nav>
+    <main>
+        <?= $output ?>
+    </main>
+    <footer>
 
-        <main>
-            <?= $output ?>
-        </main>
+        <div id="quick_links">
+            <div class="container">
+                <div id="company_links">
+                    <a href="" class="quick_link">About us</a>
+                    <a href="" class="quick_link">Terms and conditions</a>
+                    <a href="" class="quick_link">Privacy policy</a>
+                    <a href="" class="quick_link">Support</a>
+                </div>
+                <div id="users_links">
+                    <a href="" class="quick_link">Upload resume</a>
+                    <a href="jobs.php" class="quick_link">Browse jobs</a>
+                    <a href="employers.php" class="quick_link">Employers</a>
+                    <a href="candidates.php" class="quick_link">Candidates</a>
+                </div>
+
+                <div id="other_links">
+                    <a href="" class="quick_link">Pricing</a>
+                    <a href="" class="quick_link">Contacts</a>
+                    <a href="" class="quick_link">Post job</a>
+                </div>
+
+                <div id="newsletter">
+                    <h1>Subscribe to our newsletter</h1>
+                    <form action="" method="post">
+                        <label for="email">Email:</label> <br>
+                        <input type="email" placeholder="Enter your email" name="email"> <br>
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="copyright">
+            <p>Developed by Luteya Coulston</p>
+            <p>2020 &copy</p>
+        </div>
+    </footer>
 </body>
 
 </html>
