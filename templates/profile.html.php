@@ -13,10 +13,13 @@
         <p class="profile_name"><?= $first_name ?? '' ?></p>
         <?php
         if (trim($user['profile_pic'], '') === '') {
-            echo '<a href="file_upload.php">Add profile picture</a> <br/>';
-        } else {
-            echo '<a href="file_upload.php">Change profile picture</a> <br/>';
+            include __DIR__ . '../../templates/profile_pic.html.php';
+            echo '<a href="file_upload.php" id="add-pic-link">Add profile picture</a> <br/>';
         }
+        //To be added later
+        // else {
+        //     echo '<a href="file_upload.php">Change profile picture</a> <br/>';
+        // }
         ?>
         <a href="profile_details.php">edit details</a>
     </div>
@@ -66,3 +69,37 @@
         ?>
     </div>
 </div>
+
+<style>
+    #upload-profile {
+        display: none;
+    }
+</style>
+<script>
+    let picLink = document.querySelector('#add-pic-link');
+    let form = document.querySelector('form');
+    let file = document.querySelector('#submit');
+    let outputDiv = document.querySelector('.output');
+    file.addEventListener('click', sendImage);
+
+    picLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        picLink.style = 'display: none';
+        form.style = 'display: block';
+
+    });
+
+    function sendImage(e) {
+        let data = new FormData(form);
+        picLink.style = 'display: block';
+        form.style = 'display: none';
+        e.preventDefault();
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'file.php');
+        xhr.onload = function() {
+            outputDiv.innerHTML = this.responseText
+            xhr = '';
+        }
+        xhr.send(data);
+    }
+</script>

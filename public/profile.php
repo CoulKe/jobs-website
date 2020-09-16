@@ -1,6 +1,7 @@
 <?php
 session_start();
 try {
+    
     include __DIR__ . '../../includes/Config.php';
     include __DIR__ . '../../Classes/Database_Functions.php';
     $users_table = new Database_Table($pdo, 'users');
