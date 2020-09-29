@@ -9,14 +9,19 @@ try {
     $user = $usersTable->find_single_record('email', $_SESSION['email']);
 
     if (isset($_POST['edit_profile'])) {
+        $first_name = htmlspecialchars($_POST['first_name']);
+        $email = htmlspecialchars($_POST['email']);
+        $about = htmlspecialchars($_POST['about']);
+        $skills = htmlspecialchars($_POST['skills']);
+        $rate = htmlspecialchars($_POST['rate']);
 
         $usersTable->update([
             'id' => $user['id'],
-            'first_name' => $_POST['first_name'],
-            'email' => $_POST['email'],
-            'about' => $_POST['about'],
-            'skills' => $_POST['skills'],
-            'rate' => $_POST['rate']
+            'first_name' => $first_name,
+            'email' => $email,
+            'about' => $about,
+            'skills' => $skills,
+            'rate' => $rate,
         ]);
         header('Location:profile.php');
     }

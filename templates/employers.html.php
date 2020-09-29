@@ -22,7 +22,7 @@
                     <div class="candidate_name">Name: <?= $employer['first_name'] ?></div>
                     <div class="candidate_rate">Rate per hour: <?= $employer['rate'] == 0 ? 'Negotiable' : $employer['rate'] ?></div>
                     <div class="candidate_skills"> Skills: <?= $employer['skills'] == '' ? 'Not listed' : $employer['skills'] ?> </div>
-                    <a href="">View profile</a>
+                    <a href="profile.php?username=<?=$employer['username']?>">View profile</a>
                 </div>
             </div>
         <?php endwhile;?>

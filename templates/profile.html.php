@@ -4,6 +4,13 @@
         <li><a href="#about">About</a></li>
         <?= $position === 'candidate' ? '<li><a href="#skills">Skills</a></li>' : '' ?>
         <li><a href="#contact">Contact</a></li>
+
+        <?php if ($displayForm){
+            echo $position === 'employer' ? '<li><a href="#post_job">Post job</a></li>' : '';
+        }
+        ?>
+        <?php echo ($displayForm) ? '<li><a href="#testify">Testify</a></li>' : ''; ?>
+    </ul>
     </ul>
 </section>
 
@@ -12,17 +19,22 @@
         <img src="..<?= $user['profile_pic'] ?? '/assets/user_images/default.png' ?>" alt=<?= "$username" ?> class="profile_pic"> <br>
         <p class="profile_name"><?= $first_name ?? '' ?></p>
         <?php
-        if (trim($user['profile_pic'], '') === '') {
-            include __DIR__ . '../../templates/profile_pic.html.php';
-            echo '<a href="file_upload.php" id="add-pic-link">Add profile picture</a> <br/>';
+        if ($displayForm) {
+            if (trim($user['profile_pic'], '') === '') {
+                include __DIR__ . '../../templates/profile_pic.html.php';
+                echo '<a href="file_upload.php" id="add-pic-link">Add profile picture</a> <br/>';
+            }
+            echo '<a href="profile_details.php">edit details</a>';
         }
         //To be added later
         // else {
         //     echo '<a href="file_upload.php">Change profile picture</a> <br/>';
         // }
+        
         ?>
-        <a href="profile_details.php">edit details</a>
+        
     </div>
+
     <div class="details_section container">
 
         <?php if ($position === 'candidate') : ?>
@@ -41,30 +53,30 @@
         <h1 id="contact">Contact</h1>
         <p>Email: <a href="mailto:<?= $email === '' ? $unlisted : $email ?>">thatcoul@gmail.com</a> </p>
 
-        <form method="POST" class="testimonial_form">
-            <legend>Testimonial form</legend>
-            <label for="Testimonial">Testimonial:</label> <br>
-            <textarea name="testimonial" cols="30" rows="10"></textarea> <br>
-            <input type="submit" value="Share testimonial">
-        </form>
 
-        <?php
-        switch (strtolower($position)) {
-            case 'employer':
+        <?php if ($displayForm) {
+            echo '<form method="POST" id="testify" class="testimonial_form">
+                <legend>Testimonial form</legend>
+                <label for="Testimonial">Testimonial:</label> <br>
+                <textarea name="testimonial" cols="30" rows="10"></textarea> <br>
+                <input type="submit" value="Share testimonial">
+            </form>';
 
-                echo '<form method="POST" class="job_post_form">
+            switch (strtolower($position)) {
+                case 'employer':
+
+                    echo '<form method="POST" id="post_job" class="job_post_form">
             <legend>Fill this to post job</legend>
+            <label for="Company name">Company name:</label> <br>
+            <input type="text" name="company_name"> <br>
             <label for="Skills required">Skills required:
                 <span>(Separate them with commas)</span></label> <br>
             <input type="text" name="skills_required"> <br>
             <label for="Job description">Job description:</label> <br>
             <textarea name="job_description" cols="30" rows="10"></textarea> <br>
-            <input type="submit" value="Post job">';
-                break;
-
-            default:
-                // echo '';
-                break;
+            <input type="submit" name="post_job" value="Post job">';
+                    break;
+            }
         }
         ?>
     </div>
