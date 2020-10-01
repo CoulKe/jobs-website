@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2020 at 05:28 PM
+-- Generation Time: Oct 01, 2020 at 01:39 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL,
+  `company` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `skills_required` char(50) NOT NULL,
   `post_date` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -39,8 +40,10 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `description`, `skills_required`, `post_date`, `user_id`) VALUES
-(1, 'I think I made it', '', '2020-09-10 21:00:00', 8);
+INSERT INTO `jobs` (`id`, `company`, `description`, `skills_required`, `post_date`, `user_id`) VALUES
+(1, 'Coul', 'I think I made it', '', '2020-09-10 21:00:00', 8),
+(9, 'Big Poppas', 'We had a dream', 'php, Javascript', '2020-09-24 04:00:17', 15),
+(10, 'Mj Productions', 'We deal with music', 'php', '2020-09-24 15:15:24', 10);
 
 -- --------------------------------------------------------
 
@@ -99,7 +102,7 @@ INSERT INTO `users` (`id`, `first_name`, `email`, `gender`, `username`, `about`,
 (9, 'Rhapsody', 'rhapsody@dreamville.com', 'female', 'rhapsody', NULL, 'candidate', NULL, '', '$2y$10$PYTkYEaBrgBHnBw0lyq5XeD.j5dSBqzu4obZ1PSevFMNjYP8JfQyu', NULL, '2020-09-05 12:15:07'),
 (10, 'Nas', 'nas@nasislike.com', 'male', 'nas', NULL, 'candidate', NULL, '', '$2y$10$2bclYXR4qyOuvkIudnR1ouXoFZRymLsVLRT/N0kB5Bb53BncxIBgO', NULL, '2020-09-05 12:16:44'),
 (12, 'Cozz', 'cozz@zendaya.com', 'male', 'cozz', NULL, 'candidate', NULL, '', '$2y$10$LMv.jBbfLOEst3zTRODH6.gVMZNPO1nWymeKllrEGU92wC.9knKkK', NULL, '2020-09-05 12:18:41'),
-(15, 'Poppa', 'pops@smalls.com', 'male', 'pops', 'A freelance programmer', 'candidate', 2, 'Php', '$2y$10$Eng6y6Vkp8t1UN3gpuN7UuBVeAto4Surig05ULOgye9EiS1S4ywLy', NULL, '2020-09-11 07:29:50'),
+(15, 'Poppa', 'pops@smalls.com', 'male', 'pops', 'A freelance programmer', 'employer', 2, 'Php, Laravel, Django', '$2y$10$Eng6y6Vkp8t1UN3gpuN7UuBVeAto4Surig05ULOgye9EiS1S4ywLy', NULL, '2020-09-11 07:29:50'),
 (17, 'Lingo', 'Let me know', 'm', 'mastingo', 'Hii Nairobi is my lingo', 'Artist', NULL, 'fgh', 'a', 'a', '2020-09-11 08:37:36');
 
 --
@@ -136,7 +139,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `testimonials`
@@ -148,7 +151,7 @@ ALTER TABLE `testimonials`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
