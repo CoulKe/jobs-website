@@ -14,6 +14,7 @@ try {
     $unlisted = '<p>Not listed</p>';
     $profile = $_GET['username'] ?? $_GET['username'] = '';
     $profile = htmlspecialchars(trim(strtolower($profile)));
+    
 
     // If checking undefined profile without been logged, redirect
     if (empty($profile)) {
