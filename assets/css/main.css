@@ -21,16 +21,16 @@ input[type=submit] {
   margin: 8px auto;
   padding: 0.5rem;
   background-color: #fff;
-  color: brown;
+  color: #a52a2a;
   text-decoration: none;
-  border: 2px solid brown;
+  border: 2px solid #a52a2a;
   border-radius: 4px;
   font-weight: 700;
 }
 
 .title {
   font-weight: 400;
-  color: brown;
+  color: #a52a2a;
 }
 
 body {
@@ -134,7 +134,7 @@ nav ul li .link:hover {
 nav #join {
   position: relative;
   background-color: #fff;
-  color: brown;
+  color: #a52a2a;
   padding: 0.5rem;
   border-radius: 4px;
   font-weight: 500;
@@ -156,7 +156,7 @@ nav #join .dropdown-content a {
 }
 nav #join .dropdown-content a:hover,
 nav #join .dropdown-content a:focus {
-  background-color: brown;
+  background-color: #a52a2a;
   color: #fff;
 }
 nav #join:hover .dropdown-content {
@@ -262,7 +262,7 @@ nav #join:focus .dropdown-content {
   color: #fff;
 }
 #post_or_join #post_job #post_link {
-  color: brown;
+  color: #a52a2a;
   font-weight: 700;
   background-color: #fff;
   border-radius: 2px;
@@ -271,7 +271,7 @@ nav #join:focus .dropdown-content {
 }
 #post_or_join #post_job #post_link:hover,
 #post_or_join #post_job #post_link:focus {
-  background-color: brown;
+  background-color: #a52a2a;
   color: white;
   border: 1px solid white;
   animation-timing-function: ease-in-out;
@@ -291,7 +291,7 @@ nav #join:focus .dropdown-content {
 #post_or_join #create_account #create_link {
   color: #fff;
   font-weight: 700;
-  background-color: brown;
+  background-color: #a52a2a;
   border-radius: 2px;
   text-decoration: none;
   padding: 1rem;
@@ -300,7 +300,7 @@ nav #join:focus .dropdown-content {
 #post_or_join #create_account #create_link:focus {
   color: #000000;
   background-color: #fff;
-  border: 1px solid brown;
+  border: 1px solid #a52a2a;
   animation-timing-function: ease-in-out;
   transition-duration: 500ms;
 }
@@ -358,13 +358,13 @@ nav #join:focus .dropdown-content {
 }
 #testimonials_section .testimony .testimony-text::before {
   content: open-quote;
-  color: brown;
+  color: #a52a2a;
   font-size: 50px;
   font-weight: 900;
 }
 #testimonials_section .testimony .testimony-text::after {
   content: close-quote;
-  color: brown;
+  color: #a52a2a;
   display: block;
   float: right;
   font-size: 50px;
@@ -374,6 +374,33 @@ nav #join:focus .dropdown-content {
 .candidates-page {
   display: flex;
   margin-top: 8px;
+}
+.candidates-page input:focus,
+.candidates-page textarea:focus {
+  outline: none;
+  border: 1px solid #a52a2a;
+}
+.candidates-page input[type=submit] {
+  border: 1px solid #a52a2a;
+  color: #a52a2a;
+  background-color: #fff;
+  font-weight: 600;
+}
+.candidates-page input[type=submit]:hover,
+.candidates-page input[type=submit]:focus {
+  background-color: #a52a2a;
+  font-weight: 500;
+  color: #fff;
+  animation-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+.candidates-page input {
+  padding: 0.5rem;
+  margin: 10px 0px;
+}
+.candidates-page input[type=submit] {
+  margin-top: 8px;
+  width: 100%;
 }
 .candidates-page .candidates-section {
   margin-left: 250px;
@@ -403,7 +430,7 @@ nav #join:focus .dropdown-content {
   padding: 1rem;
   margin: auto 0.5rem;
   text-decoration: none;
-  background-color: brown;
+  background-color: #a52a2a;
   color: #fff;
 }
 
@@ -450,7 +477,7 @@ nav #join:focus .dropdown-content {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  box-shadow: 0px 0px 2px brown;
+  box-shadow: 0px 0px 2px #a52a2a;
 }
 .profile .profile-center .profile_name {
   font-weight: 800;
@@ -460,11 +487,30 @@ nav #join:focus .dropdown-content {
   min-width: 800px;
   padding-bottom: 1rem;
 }
+.profile .details_section input[type=submit] {
+  border: 1px solid #a52a2a;
+  color: #a52a2a;
+  background-color: #fff;
+  font-weight: 600;
+}
+.profile .details_section input[type=submit]:hover,
+.profile .details_section input[type=submit]:focus {
+  background-color: #a52a2a;
+  font-weight: 500;
+  color: #fff;
+  animation-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+.profile .details_section input:focus,
+.profile .details_section textarea:focus {
+  outline: none;
+  border: 1px solid #a52a2a;
+}
 .profile .details_section legend {
   font-weight: 700;
   font-size: 24px;
   display: block;
-  padding: 0.5rem 0rem;
+  padding-top: 2.5rem;
   text-align: center;
 }
 .profile .details_section label {
@@ -490,7 +536,7 @@ nav #join:focus .dropdown-content {
 }
 .profile .details_section h1::before {
   content: "#";
-  color: brown;
+  color: #a52a2a;
   opacity: 0.3;
   padding: 4px;
 }
@@ -524,21 +570,21 @@ nav #join:focus .dropdown-content {
 #edit_details_form input:focus,
 #edit_details_form textarea:focus {
   outline: none;
-  border: 1px solid brown;
+  border: 1px solid #a52a2a;
 }
 #edit_details_form textarea {
   max-width: 96%;
   max-height: 200px;
 }
 #edit_details_form input[type=submit] {
-  border: 1px solid brown;
-  color: brown;
+  border: 1px solid #a52a2a;
+  color: #a52a2a;
   background-color: #fff;
   font-weight: 600;
 }
 #edit_details_form input[type=submit]:hover,
 #edit_details_form input[type=submit]:focus {
-  background-color: brown;
+  background-color: #a52a2a;
   font-weight: 500;
   color: #fff;
   animation-timing-function: ease-in-out;

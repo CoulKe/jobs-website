@@ -14,6 +14,7 @@
     </ul>
 </section>
 
+
 <div class="profile">
     <div class="profile-center">
         <img src="..<?= $user['profile_pic'] ?? '/assets/user_images/default.png' ?>" alt=<?= "$username" ?> class="profile_pic"> <br>

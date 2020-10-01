@@ -1,9 +1,11 @@
+@import "./mixins.scss";
+@import "./variables.scss";
 // Globals
 * {
   padding: 0;
   margin: 0;
 }
-html{
+html {
   scroll-behavior: smooth;
 }
 main,
@@ -19,15 +21,15 @@ input[type="submit"] {
   margin: 8px auto;
   padding: 0.5rem;
   background-color: #fff;
-  color: brown;
+  color: $brown;
   text-decoration: none;
-  border: 2px solid brown;
+  border: 2px solid $brown;
   border-radius: 4px;
   font-weight: 700;
 }
 .title {
   font-weight: 400;
-  color: brown;
+  color: $brown;
 }
 body {
   font-family: sans-serif;
@@ -94,7 +96,7 @@ footer {
 nav {
   height: 10vh;
   display: flex;
-  background-color: #a52a2a;
+  background-color: $brown;
   .nav {
     display: flex;
     align-items: center;
@@ -126,7 +128,7 @@ nav {
   #join {
     position: relative;
     background-color: #fff;
-    color: brown;
+    color: $brown;
     padding: 0.5rem;
     border-radius: 4px;
     font-weight: 500;
@@ -147,7 +149,7 @@ nav {
       }
       a:hover,
       a:focus {
-        background-color: brown;
+        background-color: $brown;
         color: #fff;
       }
     }
@@ -190,7 +192,7 @@ nav {
       width: 90%;
     }
     input[type="submit"] {
-      background-color: #a52a2a;
+      background-color: $brown;
       color: white;
       margin-left: 4px;
       text-transform: uppercase;
@@ -245,7 +247,7 @@ nav {
   justify-content: space-between;
   margin-top: 1rem;
   #post_job {
-    background-color: #a52a2a;
+    background-color: $brown;
     margin: 4px;
     width: 100%;
     text-align: center;
@@ -255,7 +257,7 @@ nav {
       color: #fff;
     }
     #post_link {
-      color: brown;
+      color: $brown;
       font-weight: 700;
       background-color: #fff;
       border-radius: 2px;
@@ -264,7 +266,7 @@ nav {
     }
     #post_link:hover,
     #post_link:focus {
-      background-color: brown;
+      background-color: $brown;
       color: white;
       border: 1px solid white;
       animation-timing-function: ease-in-out;
@@ -284,7 +286,7 @@ nav {
     #create_link {
       color: #fff;
       font-weight: 700;
-      background-color: brown;
+      background-color: $brown;
       border-radius: 2px;
       text-decoration: none;
       padding: 1rem;
@@ -293,7 +295,7 @@ nav {
     #create_link:focus {
       color: #000000;
       background-color: #fff;
-      border: 1px solid brown;
+      border: 1px solid $brown;
       animation-timing-function: ease-in-out;
       transition-duration: 500ms;
     }
@@ -356,14 +358,14 @@ nav {
     }
     .testimony-text::before {
       content: open-quote;
-      color: brown;
+      color: $brown;
       font-size: 50px;
       font-weight: 900;
     }
 
     .testimony-text::after {
       content: close-quote;
-      color: brown;
+      color: $brown;
       display: block;
       float: right;
       font-size: 50px;
@@ -371,10 +373,11 @@ nav {
     }
   }
 }
-// Candidates page
+// Candidates & Employers page
 .candidates-page {
   display: flex;
   margin-top: 8px;
+  @include searchField;
   .candidates-section {
     margin-left: 250px;
     .candidate {
@@ -402,7 +405,7 @@ nav {
       padding: 1rem;
       margin: auto 0.5rem;
       text-decoration: none;
-      background-color: brown;
+      background-color: $brown;
       color: #fff;
     }
   }
@@ -418,12 +421,12 @@ nav {
   box-shadow: 0px 0px 4px #111111;
   z-index: 1;
   text-align: center;
-  ul{
+  ul {
     list-style-type: none;
-    li{
+    li {
       display: inline-block;
       padding: 0.5rem;
-      a{
+      a {
         text-decoration: none;
         color: #fff;
         padding: 0.5rem;
@@ -435,7 +438,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(243, 243, 243);
+  background-color: $lightGrey;
 
   .profile-center {
     display: flex;
@@ -449,7 +452,7 @@ nav {
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      box-shadow: 0px 0px 2px brown;
+      box-shadow: 0px 0px 2px $brown;
     }
     .profile_name {
       font-weight: 800;
@@ -460,11 +463,13 @@ nav {
     min-width: 800px;
     padding-bottom: 1rem;
 
+    @include fadeInSubmit;
+    @include inputFocus;
     legend {
       font-weight: 700;
       font-size: 24px;
       display: block;
-      padding: 0.5rem 0rem;
+      padding-top: 2.5rem;
       text-align: center;
     }
     label {
@@ -485,12 +490,12 @@ nav {
     p {
       padding-left: 2rem;
     }
-    h1{
+    h1 {
       padding-top: 2.5rem;
     }
     h1::before {
       content: "#";
-      color: brown;
+      color: $brown;
       opacity: 0.3;
       padding: 4px;
     }
@@ -523,27 +528,10 @@ nav {
   textarea {
     padding: 0.5rem;
   }
-  input:focus,
-  textarea:focus {
-    outline: none;
-    border: 1px solid brown;
-  }
+  @include inputFocus;
   textarea {
     max-width: 96%;
     max-height: 200px;
   }
-  input[type="submit"] {
-    border: 1px solid brown;
-    color: brown;
-    background-color: #fff;
-    font-weight: 600;
-  }
-  input[type="submit"]:hover,
-  input[type="submit"]:focus {
-    background-color: brown;
-    font-weight: 500;
-    color: #fff;
-    animation-timing-function: ease-in-out;
-    transition-duration: 500ms;
-  }
+  @include fadeInSubmit;
 }
