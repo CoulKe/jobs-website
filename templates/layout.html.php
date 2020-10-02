@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/normalize.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
     <title>Mentor project | <?= $title ?> </title>
 </head>
 
 <body>
-    <nav class="position-sticky">
+    <nav>
         <div class="container nav">
             <p id="site-title">Job search</p>
             <ul>

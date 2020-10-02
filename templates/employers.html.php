@@ -14,7 +14,7 @@
             <div class="candidate">
                 <?php
                 if (empty($employer['profile_url'])) {
-                    echo '<img src="../assets/user_images/default.png" 
+                    echo '<img src="./user_images/default.png" 
                     alt="$employer[\'first_name\']" class="candidate_image">';
                 }
                 ?>

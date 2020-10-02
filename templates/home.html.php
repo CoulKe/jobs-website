@@ -49,7 +49,7 @@
     <section id="testimonials_section">
         <h1 class="title">Testimonials</h1>
         <div class="carousel">
-            <img src="../assets/svg/left.svg" id="left-arr" alt="Left arrow">
+            <img src="./assets/svg/left.svg" id="left-arr" alt="Left arrow">
             <div class="testimony">
                 <img src="njeriredCartoon.png" alt="" class="testimony-image">
                 <div class="testimony-text">
@@ -68,12 +68,12 @@
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa odio, minus aliquam voluptatum perferendis earum.
                 </div>
             </div>
-            <img src="../assets/svg/right.svg" id="right-arr" alt="Right arrow">
+            <img src="./assets/svg/right.svg" id="right-arr" alt="Right arrow">
         </div>
     </section>
 </div>
 
-<script src="../assets/js/slider.js"></script>
+<script src="./assets/js/slider.js"></script>
 <style>
 
 

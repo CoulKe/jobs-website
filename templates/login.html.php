@@ -12,4 +12,4 @@
     <input type="submit" value="Log in" name="login"> <br>
     <p><a href="forgot.php">Forgot password?</a></p>
 </form>
-<script src='../assets/js/loginValidation.js'></script>
+<script src='./assets/js/loginValidation.js'></script>

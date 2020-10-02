@@ -35,6 +35,7 @@ input[type=submit] {
 
 body {
   font-family: sans-serif;
+  overflow: hidden;
 }
 
 main {
@@ -205,6 +206,25 @@ nav #join:focus .dropdown-content {
   color: #ffffff;
   text-transform: capitalize;
   line-height: 0.2rem;
+}
+@media (max-width: 400px) {
+  #header form {
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #header form input {
+    width: 100%;
+  }
+  #header form input[type=submit] {
+    margin: 0px;
+    width: 100%;
+  }
+  #header #banner-intro {
+    font-size: 0.8em;
+    text-align: center;
+  }
 }
 #header #slogan {
   text-align: center;

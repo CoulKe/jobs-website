@@ -35,4 +35,4 @@
     <br>
     <input type="submit" name="register" id="register" value="Register"> <br>
 </form>
-<script src='../assets/js/registerValidation.js'></script>
+<script src='./assets/js/registerValidation.js'></script>
