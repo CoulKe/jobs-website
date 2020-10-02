@@ -33,7 +33,7 @@ input[type="submit"] {
 }
 body {
   font-family: sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 main {
   min-height: 52vh;
@@ -91,31 +91,33 @@ footer {
   }
 }
 .container {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 nav {
   height: 10vh;
   display: flex;
+  background-color: red;
   background-color: $brown;
   .nav {
     display: flex;
     align-items: center;
     color: #ffffff;
-    justify-content: space-between;
     width: 100%;
     #site-title {
       display: inline;
+      flex: 1;
       font-size: larger;
       font-weight: 600;
     }
   }
   ul {
+    flex: 1;
+    text-align: right;
     list-style-type: none;
-    display: flex;
-    align-items: center;
     li {
       padding: 1rem;
+      display: inline;
       .link {
         padding: 1rem;
         color: #ffffff;
@@ -125,43 +127,44 @@ nav {
         text-decoration: underline;
       }
     }
-  }
-  #join {
-    position: relative;
-    background-color: #fff;
-    color: $brown;
-    padding: 0.5rem;
-    border-radius: 4px;
-    font-weight: 500;
-    .dropdown-content {
-      position: absolute;
-      display: none;
-      width: 100px;
-      top: 2.1rem;
-      right: 0;
+    #join {
+      position: relative;
+      display: inline;
       background-color: #fff;
-      z-index: 2;
-
-      a {
-        color: #111;
-        line-height: 2rem;
-        text-decoration: none;
-        padding: 0.5rem;
-      }
-      a:hover,
-      a:focus {
-        background-color: $brown;
-        color: #fff;
+      color: $brown;
+      padding: 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      .dropdown-content {
+        position: absolute;
+        display: none;
+        width: 100px;
+        top: 2.1rem;
+        right: 0;
+        background-color: #fff;
+        z-index: 2;
+  
+        a {
+          color: #111;
+          line-height: 2rem;
+          text-decoration: none;
+          padding: 0.5rem;
+        }
+        a:hover,
+        a:focus {
+          background-color: $brown;
+          color: #fff;
+        }
       }
     }
-  }
-  #join:hover .dropdown-content {
-    display: flex;
-    flex-direction: column;
-  }
-  #join:focus .dropdown-content {
-    display: flex;
-    flex-direction: column;
+    #join:hover .dropdown-content {
+      display: flex;
+      flex-direction: column;
+    }
+    #join:focus .dropdown-content {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 

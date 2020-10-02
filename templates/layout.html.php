@@ -18,24 +18,24 @@
                 <li><a class="link" href="jobs.php">Jobs</a></li>
                 <li><a class="link" href="employers.php">Employers</a></li>
                 <li><a class="link" href="candidates.php">Candidates</a></li>
-            </ul>
-            <?php
-            if (isset($_SESSION['password'])) {
-                echo '<div id="join">Account
+                <?php
+                if (isset($_SESSION['password'])) {
+                    echo '<div id="join">Account
                 <div class="dropdown-content">
                     <a href="profile.php">Profile</a>
                     <a href="logout.php">Logout</a>
                 </div>
             </div>';
-            } else {
-                echo '<div id="join">Join
+                } else {
+                    echo '<div id="join">Join
                 <div class="dropdown-content">
                     <a href="login.php">Login</a>
                     <a href="register.php">Register</a>
                 </div>
             </div>';
-            }
-            ?>
+                }
+                ?>
+            </ul>
         </div>
     </nav>
     <main>
