@@ -1,4 +1,4 @@
-<form action="" method="POST" id="register_form" enctype="multipart/form-data">
+<form action="" method="POST" id="register_form">
     <h1>Register Form</h1>
     <label for="First name">First name: </label> <br>
     <input type="text" name="first_name" id="fName" required="required" value=<?= $_POST['first_name'] ?? '' ?>>
