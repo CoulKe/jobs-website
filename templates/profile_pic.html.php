@@ -1,4 +1,4 @@
-<form action="file.php" method="post" id="upload-profile" enctype="multipart/form-data">
+<form action="file" method="post" id="upload-profile" enctype="multipart/form-data">
     <label for="Upload">Add profile picture: </label> <br>
     <input type="file" name="pic"> <br>
     <input type="submit" value="submit" id="submit">
@@ -22,7 +22,7 @@
         let data = new FormData(form);
         e.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', 'file.php');
+        xhr.open('POST', 'file');
         xhr.onload = function() {
             outputDiv.innerHTML = this.responseText
             xhr = '';

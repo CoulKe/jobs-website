@@ -14,23 +14,23 @@
         <div class="container nav">
             <p id="site-title">Job search</p>
             <ul>
-                <li><a class="link" href="index.php">Home</a></li>
-                <li><a class="link" href="jobs.php">Jobs</a></li>
-                <li><a class="link" href="employers.php">Employers</a></li>
-                <li><a class="link" href="candidates.php">Candidates</a></li>
+                <li><a class="link" href="index">Home</a></li>
+                <li><a class="link" href="jobs">Jobs</a></li>
+                <li><a class="link" href="employers">Employers</a></li>
+                <li><a class="link" href="candidates">Candidates</a></li>
                 <?php
                 if (isset($_SESSION['password'])) {
                     echo '<div id="join">Account
                 <div class="dropdown-content">
-                    <a href="profile.php">Profile</a>
-                    <a href="logout.php">Logout</a>
+                    <a href="profile">Profile</a>
+                    <a href="logout">Logout</a>
                 </div>
             </div>';
                 } else {
                     echo '<div id="join">Join
                 <div class="dropdown-content">
-                    <a href="login.php">Login</a>
-                    <a href="register.php">Register</a>
+                    <a href="login">Login</a>
+                    <a href="register">Register</a>
                 </div>
             </div>';
                 }
@@ -53,9 +53,9 @@
                 </div>
                 <div id="users_links">
                     <a href="" class="quick_link">Upload resume</a>
-                    <a href="jobs.php" class="quick_link">Browse jobs</a>
-                    <a href="employers.php" class="quick_link">Employers</a>
-                    <a href="candidates.php" class="quick_link">Candidates</a>
+                    <a href="jobs" class="quick_link">Browse jobs</a>
+                    <a href="employers" class="quick_link">Employers</a>
+                    <a href="candidates" class="quick_link">Candidates</a>
                 </div>
 
                 <div id="other_links">

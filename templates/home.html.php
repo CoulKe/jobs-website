@@ -2,7 +2,7 @@
     <div id="header-wrapper">
         <h1 id="banner-intro">Your dream job awaits you</h1>
         <p id="slogan">just one click away</p>
-        <form action="jobs.php" method="get">
+        <form action="jobs" method="get">
             <input type="search" name="keyword" placeholder="Type keyword">
             <input type="submit" value="Search">
         </form>
@@ -18,7 +18,7 @@
             <?php foreach ($jobs_array as $jobs) : ?>
                 <div class="latest_job">
                     <div class="image"></div>
-                    <div class="company_title">Company: <a href=<?="profile.php?username=".$jobs['username'];?>>
+                    <div class="company_title">Company: <a href=<?="profile?username=".$jobs['username'];?>>
                     <?= $jobs['company'] ?></a></div>
                     <div class="job_description">
                         Description:<br /> <?= $jobs['description'] ?>.
@@ -26,22 +26,22 @@
                 </div>
             <?php endforeach; ?>
         </div>
-        <a href="jobs.php" class="see_more">Browse more jobs</a>
+        <a href="jobs" class="see_more">Browse more jobs</a>
     </section>
     <section id="post_or_join">
         <div id="post_job">
             <h1>Post a job</h1>
-            <a href="profile.php#post_job" id="post_link">Click here to post job</a>
+            <a href="profile#post_job" id="post_link">Click here to post job</a>
         </div>
         <div id="create_account">
             <?php
             if(!$logged_in){
                 echo '<h1>Create account</h1>
-            <a href="register.php" id="create_link">Click here to create account</a>';
+            <a href="register" id="create_link">Click here to create account</a>';
         } 
         else{
             echo '<h1>You are logged in</h1>
-            <a href="register.php" id="create_link">Click here to see profile</a>';
+            <a href="register" id="create_link">Click here to see profile</a>';
         }
         ?>
         </div>

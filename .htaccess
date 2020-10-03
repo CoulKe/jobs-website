@@ -5,3 +5,14 @@ RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
 RewriteRule ^ %1 [L,NE,R=302]
 
 RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+
+#Error files
+ErrorDocument 404 http://localhost/mentor_project/not
+
+#Hiding php extension
+RewriteEngine on
+# If not a directory
+RewriteCond %{REQUEST_FILENAME} !-d [NC]
+RewriteCond %{REQUEST_FILENAME}\.php -f [NC]
+# $1 Grabs everything from the regex
+RewriteRule ^(.*)$ $1.php [NC,L]

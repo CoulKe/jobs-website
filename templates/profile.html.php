@@ -22,14 +22,14 @@
         <?php
         if ($displayForm) {
             if (trim($user['profile_pic'], '') === '') {
-                include __DIR__ . '../../templates/profile_pic.html.php';
-                echo '<a href="file_upload.php" id="add-pic-link">Add profile picture</a> <br/>';
+                include __DIR__ . '../../templates/profile_pic.html';
+                echo '<a href="file_upload" id="add-pic-link">Add profile picture</a> <br/>';
             }
-            echo '<a href="profile_details.php">edit details</a>';
+            echo '<a href="profile_details">edit details</a>';
         }
         //To be added later
         // else {
-        //     echo '<a href="file_upload.php">Change profile picture</a> <br/>';
+        //     echo '<a href="file_upload">Change profile picture</a> <br/>';
         // }
         
         ?>
@@ -108,7 +108,7 @@
         form.style = 'display: none';
         e.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', 'file.php');
+        xhr.open('POST', 'file');
         xhr.onload = function() {
             outputDiv.innerHTML = this.responseText
             xhr = '';
