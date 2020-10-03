@@ -8,11 +8,13 @@ let passwordConfirm = document.querySelector("#passwordConfirm");
 let gender = document.getElementsByName("gender");
 let register = document.querySelector("#register");
 
-
+let fNameErr = document.querySelector("#fNameError");
 // Functions
 function invalidAlert(errorFieldSelector, errorText) {
   let selector = document.querySelector(errorFieldSelector);
   selector.innerText = errorText;
+  selector.style =
+    "color: #fff;background-color: red; padding: 4px; display: block;";
 }
 function radiosValidate(selector) {
   const radios = document.querySelectorAll(`input[name="${selector}"]`);
@@ -29,10 +31,9 @@ function radiosValidate(selector) {
   return selectedValue;
 }
 
-
- form.addEventListener("submit", function (event) {
+form.addEventListener("submit", function (event) {
   let radiosBool = radiosValidate("gender");
-  
+
   if (
     firstName.value == "" &&
     email.value == "" &&
@@ -81,4 +82,9 @@ function radiosValidate(selector) {
     event.preventDefault();
     return;
   }
+});
+
+firstName.addEventListener("keydown", function() {
+  fNameErr.innerText = '';
+  fNameErr.style.display = 'none';
 });
