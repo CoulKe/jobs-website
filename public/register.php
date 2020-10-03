@@ -6,7 +6,8 @@ try {
 
     $users_table = new Database_Table($pdo, 'users');
     $title = 'Register';
-    $nameErr = $usernameErr = $emailErr = $passwordErr = $confirmErr = $genderErr = $positionErr = '';
+    $nameErr = $usernameErr = $emailErr = $passwordErr = $confirmErr = $genderErr = $positionErr = $position ='';
+    $gender = '';
     $genders = ['male', 'female', 'other'];
     $positions = ['employer', 'candidate'];
 
@@ -20,7 +21,6 @@ try {
         $position = strtolower($_POST['position']);
         $password = $_POST['password'];
         $password_confirm = $_POST['password_confirm'];
-
 
         if (empty($first_name)) {
             $nameErr = 'First name not filled';

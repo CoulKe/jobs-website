@@ -8,13 +8,11 @@ let passwordConfirm = document.querySelector("#passwordConfirm");
 let gender = document.getElementsByName("gender");
 let register = document.querySelector("#register");
 
-let fNameErr = document.querySelector("#fNameError");
 // Functions
 function invalidAlert(errorFieldSelector, errorText) {
   let selector = document.querySelector(errorFieldSelector);
   selector.innerText = errorText;
-  selector.style =
-    "color: #fff;background-color: red; padding: 4px; display: block;";
+  selector.style = "color: #fff;background-color: red; padding: 4px; display: block;";
 }
 function radiosValidate(selector) {
   const radios = document.querySelectorAll(`input[name="${selector}"]`);
@@ -84,7 +82,37 @@ form.addEventListener("submit", function (event) {
   }
 });
 
-firstName.addEventListener("keydown", function() {
-  fNameErr.innerText = '';
-  fNameErr.style.display = 'none';
+let fNameError = document.querySelector("#fNameError");
+let emailError = document.querySelector("#emailError");
+let usernameError = document.querySelector("#usernameError");
+let genderError = document.querySelector("#genderError");
+let passwordError = document.querySelector("#passwordError");
+let confirmError = document.querySelector("#confirmError");
+
+firstName.addEventListener("keydown", function () {
+  fNameError.innerText = "";
+  fNameError.style.display = "none";
+});
+
+email.addEventListener("keydown", function () {
+  emailError.innerText = "";
+  emailError.style.display = "none";
+});
+username.addEventListener("keydown", function () {
+  usernameError.innerText = "";
+  usernameError.style.display = "none";
+});
+gender.forEach((gender) => {
+  gender.addEventListener("change", () => {
+    genderError.innerText = "";
+    genderError.style.display = "none";
+  });
+});
+password.addEventListener("keydown", function () {
+  passwordError.innerText = "";
+  passwordError.style.display = "none";
+});
+passwordConfirm.addEventListener("keydown", function () {
+  confirmError.innerText = "";
+  confirmError.style.display = "none";
 });

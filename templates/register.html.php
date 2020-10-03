@@ -14,16 +14,20 @@
     <br>
     <label for="gender">Gender:</label> <br>
     <div class="gender_options">
-        <label for="male">Male:</label><input type="radio" name="gender" value="male"> <br>
-        <label for="female">Female:</label><input type="radio" name="gender" value="female"> <br>
-        <label for="other">Other:</label><input type="radio" name="gender" value="other"> <br>
+        <label for="male">Male:</label><input type="radio" name="gender" value="male"
+        <?= $gender === "male" ? "checked": '';?> >  <br>
+        <label for="female">Female:</label><input type="radio" name="gender" value="female"
+        <?= $gender === "female" ? "checked": '';?>> <br>
+        <label for="other">Other:</label><input type="radio" name="gender" value="other" <?= $gender === "other" ? "checked": '';?>> <br>
     </div>
     <span class="error" id="genderError"> <?php echo $genderErr; ?></span>
     <br>
     <label for="Position">Position: </label> <br>
     <div class="position_options">
-        <label for="Employer">Employer:</label><input type="radio" name="position" value="employer">
-        <label for="Candidate">Candidate:</label><input type="radio" name="position" value="candidate"> <br>
+        <label for="Employer">Employer: </label> 
+        <input type="radio" name="position" id="employer" <?= $position === "employer" ? "checked" : ''; ?> value="employer">
+        <label for="Candidate">Candidate: </label> 
+        <input type="radio" name="position" id="candidate" <?= $position === "candidate" ? "checked" : ''; ?> value="candidate">
     </div>
     <label for="password">Password: </label> <br>
     <input type="password" id="password" name="password" autocomplete="off">
