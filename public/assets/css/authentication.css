@@ -21,6 +21,9 @@ form {
   border: 1px solid #111;
   width: 250px;
 }
+form label {
+  line-height: 2rem;
+}
 form h1 {
   width: 100%;
   text-align: center;
@@ -33,6 +36,7 @@ form input {
 }
 form input span {
   width: 100%;
+  margin-bottom: 2px;
 }
 form input:focus,
 form textarea:focus {
@@ -47,6 +51,9 @@ form input[type=radio] {
 form .gender_options {
   display: flex;
   justify-content: space-between;
+}
+form .gender_options label {
+  line-height: normal;
 }
 form input[type=submit] {
   border: 1px solid #a52a2a;

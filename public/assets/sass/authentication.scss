@@ -21,6 +21,9 @@ form {
   border: 1px solid #111;
   width: 250px;
 
+  label{
+      line-height: 2rem;
+  }
   h1 {
     width: 100%;
     text-align: center;
@@ -33,6 +36,7 @@ form {
     width: 100%;
     span {
       width: 100%;
+      margin-bottom: 2px;
     }
   }
   @include inputFocus;
@@ -45,6 +49,9 @@ form {
   .gender_options {
     display: flex;
     justify-content: space-between;
+    label{
+        line-height: normal;
+    }
   }
 
   @include fadeInSubmit;
