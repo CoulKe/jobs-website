@@ -31,17 +31,17 @@
     <section id="post_or_join">
         <div id="post_job">
             <h1>Post a job</h1>
-            <a href="profile#post_job" id="post_link">Click here to post job</a>
+            <a href="profile#post_job" id="post_link">Click here</a>
         </div>
         <div id="create_account">
             <?php
             if(!$logged_in){
                 echo '<h1>Create account</h1>
-            <a href="register" id="create_link">Click here to create account</a>';
+            <a href="register" id="create_link">Click here</a>';
         } 
         else{
             echo '<h1>You are logged in</h1>
-            <a href="register" id="create_link">Click here to see profile</a>';
+            <a href="register" id="create_link">See profile</a>';
         }
         ?>
         </div>
