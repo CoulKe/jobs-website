@@ -1,58 +1,55 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+@import "./variables.scss";
+@import "./mixins.scss";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
-body{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    max-height: 100vh;
-    min-height: 100vh;
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100vh;
+  min-height: 100vh;
 }
-form{
+form {
   align-self: center;
   padding: 1rem;
   line-height: 20px;
   border: 1px solid #111;
   width: 250px;
 
-  h1{
-      width: 100%;
-      text-align: center;
-      font-size: larger;
-      margin-bottom: 8px;
-     }
-  
-  input{
-    margin-bottom: 16px;
+  h1 {
     width: 100%;
-  }
-  input[type="radio"]{
-      margin-bottom: none;
-      width: fit-content;
-      border: 2px solid red;
-  }
-  
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="password"]:focus{
-      outline: 2px solid rgb(143, 143, 235);
-      padding: 2px;
-      border: none;
-  }
-  .gender_options{
-      display: flex;
-      justify-content: space-between;
+    text-align: center;
+    font-size: larger;
+    margin-bottom: 8px;
   }
 
-  input[type="submit"]{
+  input {
+    margin-bottom: 0px;
+    width: 100%;
+    span {
       width: 100%;
-      background-color: rgb(49, 49, 179);
-      padding: 0.5rem;
-      border: none;
-      color: #fff;
+    }
+  }
+  @include inputFocus;
+  input[type="radio"] {
+    margin-bottom: 0;
+    width: fit-content;
+    border: 2px solid red;
+  }
+
+  .gender_options {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include fadeInSubmit;
+  input[type="submit"] {
+    padding: 0.5rem;
+    margin-top: 8px;
   }
 }
