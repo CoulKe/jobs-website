@@ -2,7 +2,7 @@
 session_start();
 try {
     include __DIR__ . '../../includes/Config.php';
-    include __DIR__ . '../../Classes/Database_Functions.php';
+    include __DIR__ . '../../includes/autoloader.php';
     $title = 'Edit profile';
     $errors = $nameErr = $usernameErr = $emailErr = $genderErr = $rateErr = '';
     $usersTable = new Database_Table($pdo, 'users');

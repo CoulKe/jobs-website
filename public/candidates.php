@@ -3,7 +3,7 @@ session_start();
 try {
     $title = 'Candidates';
     include __DIR__ . '../../includes/Config.php';
-    include __DIR__ . '../../Classes/Database_Functions.php';
+    include __DIR__ . '../../includes/autoloader.php';
     $users_table = new Database_Table($pdo, 'users');
     $all_candidates = $users_table->findAll('position', 'candidate');
 

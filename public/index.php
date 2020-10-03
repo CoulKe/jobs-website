@@ -1,8 +1,7 @@
 <?php
 try {
     include __DIR__ . '../../includes/Config.php';
-    include __DIR__ . '../../Classes/Database_Functions.php';
-    include __DIR__ . '../../Classes/Authentication.php';
+    include __DIR__ . '../../includes/autoloader.php';
 
     $jobs_table = new Database_Table($pdo, 'jobs');
     $users_table = new Database_Table($pdo, 'users');

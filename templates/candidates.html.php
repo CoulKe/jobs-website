@@ -10,7 +10,7 @@
     </aside>
     <section class="candidates-section">
         <h1 class="title">Candidates</h1>
-        <?php while ($candidate = $result->fetch()): ?>
+        <?php while ($candidate = $result->fetch()) : ?>
             <div class="candidate">
                 <?php
                 if (empty($candidate['profile_url'])) {
@@ -22,12 +22,12 @@
                     <div class="candidate_name">Name: <?= $candidate['first_name'] ?></div>
                     <div class="candidate_rate">Rate per hour: <?= $candidate['rate'] == 0 ? 'Negotiable' : $candidate['rate'] ?></div>
                     <div class="candidate_skills"> Skills: <?= $candidate['skills'] == '' ? 'Not listed' : $candidate['skills'] ?> </div>
-                    <a href="profile?username=<?=$candidate['username']?>">View profile</a>
+                    <a href="profile.php?username=<?= $candidate['username'] ?>">View profile</a>
                 </div>
             </div>
-        <?php endwhile;?>
+        <?php endwhile; ?>
         <div class="pagination">
-        <?='Pages '.$links; ?>
+            <?= 'Pages ' . $links; ?>
         </div>
     </section>
 </div>
