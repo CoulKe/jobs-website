@@ -6,7 +6,7 @@ class Authentication
     private $emailColumn;
     private $passwordColumn;
 
-    public function __construct(\Database_Table $users,     $emailColumn, $passwordColumn)
+    public function __construct(\Database_Table $users,  $emailColumn = 'email', $passwordColumn = 'password')
     {
         session_start();
         $this->users = $users;
