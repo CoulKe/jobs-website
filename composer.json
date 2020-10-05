@@ -1,0 +1,13 @@
+{
+    "name": "coulston/jobs-website",
+    "description": "A basic job searching website",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luteya Coulston",
+            "email": "thatcoul@gmail.com"
+        }
+    ],
+    "require": {}
+}
