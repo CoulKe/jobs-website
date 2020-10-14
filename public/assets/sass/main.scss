@@ -208,7 +208,7 @@ nav {
     text-transform: capitalize;
     line-height: 0.2rem;
   }
-  @media (max-width: 400px){
+  @media (max-width: 600px){
     form{
       width: 90%;
       margin: auto;
@@ -261,6 +261,17 @@ nav {
         height: 150px;
         border-radius: 50%;
         margin: 8px auto;
+      }
+    }
+  }
+  @media (max-width: 600px){
+    &{
+      .jobs{
+        flex-direction: column;
+        align-items: center;
+        .latest_job{
+          width: 100%;
+        }
       }
     }
   }
@@ -321,6 +332,11 @@ nav {
       border: 1px solid $brown;
       animation-timing-function: ease-in-out;
       transition-duration: 500ms;
+    }
+  }
+  @media (max-width: 600px) {
+    &{
+      flex-direction: column;
     }
   }
 }
@@ -393,6 +409,26 @@ nav {
       float: right;
       font-size: 50px;
       font-weight: 900;
+    }
+  }
+  @media (max-width: 600px) {
+    &{
+      width: 100%;
+      // padding: 0;
+      .testimony{
+        width: 100%;
+        flex-direction: column;
+        .testimony-image{
+          width: 150px;
+          height: 150px;
+        }
+        .testimony-text{
+          width: 100%;
+          &::after, &::before{
+            font-size: small;
+          }
+        }
+      }
     }
   }
 }

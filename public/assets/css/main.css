@@ -210,7 +210,7 @@ nav ul #join:focus .dropdown-content {
   text-transform: capitalize;
   line-height: 0.2rem;
 }
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   #header form {
     width: 90%;
     margin: auto;
@@ -266,6 +266,15 @@ nav ul #join:focus .dropdown-content {
   height: 150px;
   border-radius: 50%;
   margin: 8px auto;
+}
+@media (max-width: 600px) {
+  #latest_section .jobs {
+    flex-direction: column;
+    align-items: center;
+  }
+  #latest_section .jobs .latest_job {
+    width: 100%;
+  }
 }
 
 #post_or_join {
@@ -326,6 +335,11 @@ nav ul #join:focus .dropdown-content {
   border: 1px solid #a52a2a;
   animation-timing-function: ease-in-out;
   transition-duration: 500ms;
+}
+@media (max-width: 600px) {
+  #post_or_join {
+    flex-direction: column;
+  }
 }
 
 #testimonials_section {
@@ -392,6 +406,25 @@ nav ul #join:focus .dropdown-content {
   float: right;
   font-size: 50px;
   font-weight: 900;
+}
+@media (max-width: 600px) {
+  #testimonials_section {
+    width: 100%;
+  }
+  #testimonials_section .testimony {
+    width: 100%;
+    flex-direction: column;
+  }
+  #testimonials_section .testimony .testimony-image {
+    width: 150px;
+    height: 150px;
+  }
+  #testimonials_section .testimony .testimony-text {
+    width: 100%;
+  }
+  #testimonials_section .testimony .testimony-text::after, #testimonials_section .testimony .testimony-text::before {
+    font-size: small;
+  }
 }
 
 .candidates-page {
