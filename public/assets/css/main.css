@@ -171,6 +171,16 @@ nav ul #join:focus .dropdown-content {
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 650px) {
+  nav ul {
+    display: none;
+  }
+}
+@media (min-width: 650px) {
+  nav #menu {
+    display: none;
+  }
+}
 
 #header {
   height: 90vh;

@@ -13,6 +13,7 @@
     <nav>
         <div class="container nav">
             <p id="site-title">Job search</p>
+            <img src="./assets/images/hamburger.png" alt="menu" id="menu">
             <ul>
                 <li><a class="link" href="index">Home</a></li>
                 <li><a class="link" href="jobs">Jobs</a></li>
