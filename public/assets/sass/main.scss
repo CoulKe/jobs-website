@@ -85,6 +85,9 @@ footer {
           border-radius: 4px;
           outline: none;
         }
+        @media (max-width: 650px){
+          border-bottom: 2px solid grey;
+        }
       }
       @media (max-width: 650px){
         &{
@@ -478,11 +481,25 @@ nav {
   .pagination {
     margin: 1.5rem;
     .pagination_link {
-      padding: 1rem;
-      margin: auto 0.5rem;
+      padding: 4px;
+      margin: auto 0.3rem;
       text-decoration: none;
       background-color: $brown;
       color: #fff;
+    }
+  }
+  @media (max-width: 750px){
+    &{
+      flex-direction: column;
+      input[type="text"] {
+        width: 90%;
+      }
+      input[type="submit"] {
+        width: 96%;
+      }
+      .candidates-section {
+        margin-left: 0px;
+    }
     }
   }
 }
