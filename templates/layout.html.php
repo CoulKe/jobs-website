@@ -46,23 +46,25 @@
 
         <div id="quick_links">
             <div class="container">
-                <div id="company_links">
-                    <a href="" class="quick_link">About us</a>
-                    <a href="" class="quick_link">Terms and conditions</a>
-                    <a href="" class="quick_link">Privacy policy</a>
-                    <a href="" class="quick_link">Support</a>
-                </div>
-                <div id="users_links">
-                    <a href="" class="quick_link">Upload resume</a>
-                    <a href="jobs" class="quick_link">Browse jobs</a>
-                    <a href="employers" class="quick_link">Employers</a>
-                    <a href="candidates" class="quick_link">Candidates</a>
-                </div>
+                <div class="links_wrapper">
+                    <div id="company_links">
+                        <a href="" class="quick_link">About us</a>
+                        <a href="" class="quick_link">Terms and conditions</a>
+                        <a href="" class="quick_link">Privacy policy</a>
+                        <a href="" class="quick_link">Support</a>
+                    </div>
+                    <div id="users_links">
+                        <a href="" class="quick_link">Upload resume</a>
+                        <a href="jobs" class="quick_link">Browse jobs</a>
+                        <a href="employers" class="quick_link">Employers</a>
+                        <a href="candidates" class="quick_link">Candidates</a>
+                    </div>
 
-                <div id="other_links">
-                    <a href="" class="quick_link">Pricing</a>
-                    <a href="" class="quick_link">Contacts</a>
-                    <a href="" class="quick_link">Post job</a>
+                    <div id="other_links">
+                        <a href="" class="quick_link">Pricing</a>
+                        <a href="" class="quick_link">Contacts</a>
+                        <a href="" class="quick_link">Post job</a>
+                    </div>
                 </div>
 
                 <div id="newsletter">
