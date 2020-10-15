@@ -22,7 +22,7 @@
         <?php
         if ($displayForm) {
             if (trim($user['profile_pic'], '') === '') {
-                include __DIR__ . '../../templates/profile_pic.html';
+                include __DIR__ . '../../templates/profile_pic.html.php';
                 echo '<a href="file_upload" id="add-pic-link">Add profile picture</a> <br/>';
             }
             echo '<a href="profile_details">edit details</a>';

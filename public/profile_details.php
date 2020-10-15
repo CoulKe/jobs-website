@@ -1,12 +1,14 @@
 <?php
-session_start();
 try {
     include __DIR__ . '../../includes/Config.php';
-    include __DIR__ . '../../Classes/Database_Functions.php';
+    include __DIR__ . '../../includes/autoloader.php';
     $title = 'Edit profile';
     $errors = $nameErr = $usernameErr = $emailErr = $genderErr = $rateErr = '';
-    $usersTable = new Database_Table($pdo, 'users');
-    $user = $usersTable->find_single_record('email', $_SESSION['email']);
+    $users_table = new Database_Table($pdo, 'users');
+    $auth = new Authentication($users_table, 'email', 'password');
+    $user = $users_table->find_single_record('email', $_SESSION['email']);
+    
+
 
     if (isset($_POST['edit_profile'])) {
         $first_name = htmlspecialchars($_POST['first_name']);
@@ -15,7 +17,7 @@ try {
         $skills = htmlspecialchars($_POST['skills']);
         $rate = htmlspecialchars($_POST['rate']);
 
-        $usersTable->update([
+        $users_table->update([
             'id' => $user['id'],
             'first_name' => $first_name,
             'email' => $email,
