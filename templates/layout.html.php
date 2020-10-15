@@ -15,6 +15,7 @@
             <p id="site-title">Job search</p>
             <img src="./assets/images/hamburger.png" alt="menu" id="menu">
             <ul>
+            <li id="cancelMenu"><a href="#">&times;</a></li>
                 <li><a class="link" href="index">Home</a></li>
                 <li><a class="link" href="jobs">Jobs</a></li>
                 <li><a class="link" href="employers">Employers</a></li>
@@ -82,6 +83,7 @@
             <p>2020 &copy</p>
         </div>
     </footer>
+    <script src="./assets/js/menu.js"></script>
 </body>
 
 </html>

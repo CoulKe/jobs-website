@@ -31,6 +31,9 @@ input[type="submit"] {
   font-weight: 400;
   color: $brown;
 }
+#menu{
+  cursor: pointer;
+}
 body {
   font-family: sans-serif;
   overflow-x: hidden;
@@ -54,7 +57,7 @@ footer {
       padding-bottom: 3rem;
       width: 95%;
       position: relative;
-      .links_wrapper{
+      .links_wrapper {
         display: flex;
       }
       a {
@@ -76,7 +79,7 @@ footer {
       }
       #newsletter {
         height: max-content;
-        h1{
+        h1 {
           margin-top: 0;
         }
         input {
@@ -85,12 +88,12 @@ footer {
           border-radius: 4px;
           outline: none;
         }
-        @media (max-width: 650px){
+        @media (max-width: 650px) {
           border-bottom: 2px solid grey;
         }
       }
-      @media (max-width: 650px){
-        &{
+      @media (max-width: 650px) {
+        & {
           flex-direction: column-reverse;
         }
       }
@@ -154,7 +157,7 @@ nav {
         right: 0;
         background-color: #fff;
         z-index: 2;
-  
+
         a {
           color: #111;
           line-height: 2rem;
@@ -176,14 +179,35 @@ nav {
       display: flex;
       flex-direction: column;
     }
-    @media (max-width: 650px){
-      &{
+    @media (max-width: 650px) {
+      & {
         display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #111;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        #cancelMenu {
+          text-align: left;
+          padding-left: 24px;
+          width: 100%;
+          a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 32px;
+          }
+        }
+        #join{
+          display: none;
+        }
       }
     }
   }
-  @media (min-width: 650px){
-    #menu{
+  @media (min-width: 650px) {
+    #menu {
       display: none;
     }
   }
@@ -229,21 +253,21 @@ nav {
     text-transform: capitalize;
     line-height: 0.2rem;
   }
-  @media (max-width: 600px){
-    form{
+  @media (max-width: 600px) {
+    form {
       width: 90%;
       margin: auto;
       flex-direction: column;
       justify-content: center;
-      input{
+      input {
         width: 100%;
       }
-      input[type='submit']{
+      input[type="submit"] {
         margin: 0px;
         width: 100%;
       }
     }
-    #banner-intro{ 
+    #banner-intro {
       font-size: 0.8em;
       text-align: center;
     }
@@ -285,12 +309,12 @@ nav {
       }
     }
   }
-  @media (max-width: 700px){
-    &{
-      .jobs{
+  @media (max-width: 700px) {
+    & {
+      .jobs {
         flex-direction: column;
         align-items: center;
-        .latest_job{
+        .latest_job {
           width: 100%;
         }
       }
@@ -356,7 +380,7 @@ nav {
     }
   }
   @media (max-width: 600px) {
-    &{
+    & {
       flex-direction: column;
     }
   }
@@ -433,18 +457,19 @@ nav {
     }
   }
   @media (max-width: 600px) {
-    &{
+    & {
       width: 100%;
-      .testimony{
+      .testimony {
         width: 100%;
         flex-direction: column;
-        .testimony-image{
+        .testimony-image {
           width: 150px;
           height: 150px;
         }
-        .testimony-text{
+        .testimony-text {
           width: 100%;
-          &::after, &::before{
+          &::after,
+          &::before {
             font-size: small;
           }
         }
@@ -488,8 +513,8 @@ nav {
       color: #fff;
     }
   }
-  @media (max-width: 750px){
-    &{
+  @media (max-width: 750px) {
+    & {
       flex-direction: column;
       input[type="text"] {
         width: 90%;
@@ -499,7 +524,7 @@ nav {
       }
       .candidates-section {
         margin-left: 0px;
-    }
+      }
     }
   }
 }
