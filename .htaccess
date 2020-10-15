@@ -7,7 +7,7 @@ RewriteRule ^ %1 [L,NE,R=302]
 RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
 
 #Error files
-ErrorDocument 404 http://localhost/mentor_project/not
+ErrorDocument 404 http://localhost/mentor_project/404
 
 #Hiding php extension
 RewriteEngine on
