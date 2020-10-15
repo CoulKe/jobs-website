@@ -17,6 +17,10 @@ input[type=submit] {
   cursor: pointer;
 }
 
+.error_message {
+  text-align: center;
+}
+
 .see_more {
   margin: 8px auto;
   padding: 0.5rem;
