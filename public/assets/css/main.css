@@ -732,5 +732,16 @@ nav ul #join:focus .dropdown-content {
   animation-timing-function: ease-in-out;
   transition-duration: 500ms;
 }
+@media (max-width: 550px) {
+  #edit_details_form {
+    width: 100vw;
+  }
+  #edit_details_form input, #edit_details_form textarea {
+    width: 80%;
+  }
+  #edit_details_form input[type=submit] {
+    width: 86%;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
