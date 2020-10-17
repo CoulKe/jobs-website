@@ -579,6 +579,11 @@ nav ul #join:focus .dropdown-content {
   color: #fff;
   padding: 0.5rem;
 }
+@media (max-width: 800px) {
+  .sub-menu ul li {
+    padding: 6px 0px 6px 0px;
+  }
+}
 
 .profile {
   display: flex;
@@ -664,7 +669,7 @@ nav ul #join:focus .dropdown-content {
 .profile .details_section h1:hover::before {
   opacity: 0.8;
 }
-.profile .details_section .testimonial_form {
+.profile .details_section .testimonial_form, .profile .details_section .job_post_form {
   display: flex;
   flex-direction: column;
 }
@@ -676,6 +681,12 @@ nav ul #join:focus .dropdown-content {
 @media (max-width: 801px) {
   .profile .details_section {
     width: 100%;
+  }
+  .profile .details_section .testimonial_form input, .profile .details_section .testimonial_form textarea, .profile .details_section .job_post_form input, .profile .details_section .job_post_form textarea {
+    align-self: center;
+  }
+  .profile .details_section .testimonial_form label, .profile .details_section .job_post_form label {
+    padding-left: 1rem;
   }
 }
 

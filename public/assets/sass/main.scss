@@ -553,6 +553,15 @@ nav {
       }
     }
   }
+  @media(max-width: 800px){
+    &{
+      ul{
+        li{
+          padding: 6px 0px 6px 0px;
+        }
+      }
+    }
+  }
 }
 .profile {
   display: flex;
@@ -621,18 +630,28 @@ nav {
     h1:hover::before {
       opacity: 0.8;
     }
-    .testimonial_form {
+    .testimonial_form, .job_post_form {
       display: flex;
       flex-direction: column;
     }
+    // Desktop
     @media (min-width: 801px){
       &{
         width: 800px;
       }
      }
+    //  Mobile
     @media (max-width: 801px){
       &{
         width: 100%;
+        .testimonial_form, .job_post_form{
+          input, textarea{
+            align-self: center;
+          }
+          label{
+            padding-left: 1rem;
+          }
+        }
       }
      }
   }
