@@ -580,7 +580,6 @@ nav {
     }
   }
   .details_section {
-    min-width: 800px;
     padding-bottom: 1rem;
 
     @include fadeInSubmit;
@@ -626,6 +625,16 @@ nav {
       display: flex;
       flex-direction: column;
     }
+    @media (min-width: 801px){
+      &{
+        width: 800px;
+      }
+     }
+    @media (max-width: 801px){
+      &{
+        width: 100%;
+      }
+     }
   }
 }
 //profile_details page

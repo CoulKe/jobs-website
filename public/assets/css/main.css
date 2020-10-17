@@ -606,7 +606,6 @@ nav ul #join:focus .dropdown-content {
   margin-bottom: 8px;
 }
 .profile .details_section {
-  min-width: 800px;
   padding-bottom: 1rem;
 }
 .profile .details_section input[type=submit] {
@@ -668,6 +667,16 @@ nav ul #join:focus .dropdown-content {
 .profile .details_section .testimonial_form {
   display: flex;
   flex-direction: column;
+}
+@media (min-width: 801px) {
+  .profile .details_section {
+    width: 800px;
+  }
+}
+@media (max-width: 801px) {
+  .profile .details_section {
+    width: 100%;
+  }
 }
 
 #edit_details_form {
