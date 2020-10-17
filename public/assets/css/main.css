@@ -139,6 +139,10 @@ nav .nav #site-title {
   font-size: larger;
   font-weight: 600;
 }
+nav .nav #site-title a {
+  color: #fff;
+  text-decoration: none;
+}
 nav ul {
   flex: 1;
   text-align: right;

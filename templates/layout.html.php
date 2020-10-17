@@ -12,7 +12,7 @@
 <body>
     <nav>
         <div class="container nav">
-            <p id="site-title">Job search</p>
+            <p id="site-title"><a href="index">Job search</a></p>
             <img src="./assets/images/hamburger.png" alt="menu" id="menu">
             <ul>
             <li id="cancelMenu"><a href="#">&times;</a></li>
