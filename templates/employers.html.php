@@ -9,7 +9,7 @@
         </form>
     </aside>
     <section class="candidates-section">
-        <h1 class="title">Employer</h1>
+        <h1 class="title">Employers</h1>
         <?php while ($employer = $result->fetch()) : ?>
             <div class="candidate">
                 <?php
